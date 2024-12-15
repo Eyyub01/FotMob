@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams</title>
+    <link rel="stylesheet" href="{% static 'teams.css' %}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo">FotMob</div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="{% url 'leagues' %}">Leagues</a></li>
+                <li><a href="{% url 'teams' %}">Teams</a></li>
+                <li><a href="">Players</a></li>
+                <li><a href="">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<!-- Filter Section -->
+<section class="filters">
+    <h3>Filter by League</h3>
+    <ul>
+        <li><a href="{% url 'teams' %}" class="{% if not selected_league %}active{% endif %}">All</a></li>
+        {% for league in leagues %}
+            <li>
+                <a href="?league={{ league.id }}" class="{% if selected_league == league.id|stringformat:"s" %}active{% endif %}">
+                    {{ league.league_name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</section>
+
+
+    <!-- Teams Display Section -->
+    <main>
+        <h1>All Teams</h1>
+        <div class="teams-grid">
+            {% for team in teams %}
+                <div class="team-card">
+                    {% if team.club_logo %}
+                        <img src="{{ team.club_logo.url }}" alt="{{ team.team_name }}" class="team-logo">
+                    {% endif %}
+                    <h2>{{ team.team_name }}</h2>
+                    {% if team.league %}
+                        <p><strong>League:</strong> {{ team.league.league_name }}</p>
+                    {% endif %}
+                    <p><strong>Stadium:</strong> {{ team.stadium }}</p>
+                    <p><strong>Capacity:</strong> {{ team.stadium_capacity }}</p>
+                </div>
+            {% empty %}
+                <p>No teams available.</p>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Leagues</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo">FotMob</div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="{% url 'leagues' %}">Leagues</a></li>
+                <li><a href="{% url 'teams' %}">Teams</a></li>
+                <li><a href="">Players</a></li>
+                <li><a href="">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h1>Welcome to FotMob</h1>
+            <p>Explore football leagues, teams, and players worldwide.</p>
+        </section>
+    </main>
+
+    <!-- Search Section -->
+    <main>
+        <section class="search-bar">
+            <form method="get" action="{% url 'search_leagues' %}">
+                <input type="text" name="q" placeholder="Search leagues..." value="{{ query }}">
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+         <!-- Filter Buttons -->
+
+    <section class="filters">
+        <a href="/leagues/?filter=all" class="filter-button {% if filter_type == 'all' %}active{% endif %}">All Leagues</a>
+        <a href="/leagues/?filter=top5" class="filter-button {% if filter_type == 'top5' %}active{% endif %}">Top 5 Leagues</a>
+    </section>
+
+
+    <section class="leagues-section">
+        <h1>All Leagues</h1>
+        <div class="leagues-grid">
+            {% for league in leagues %}
+                <div class="league-card">
+                    {% if league.league_logo %}
+                        <img src="{{ league.league_logo.url }}" alt="{{ league.league_name }}" class="league-logo">
+                    {% endif %}
+                    <h2>{{ league.league_name }}</h2>
+                    <p><strong>Country:</strong> {{ league.country.name }}</p>
+                    <p><strong>Teams:</strong> {{ league.number_of_teams }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+    </main>
+
+</body>
+</html>

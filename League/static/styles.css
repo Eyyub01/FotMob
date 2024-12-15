@@ -1,0 +1,235 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+.header {
+    background-color: #28a745;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 15px;
+    transition: background-color 0.3s;
+}
+
+.nav-links ul li a:hover {
+    background-color: #264e36;
+    border-radius: 5px;
+}
+
+/* Leagues Section */
+.leagues-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.leagues-section h1 {
+    margin-bottom: 20px;
+    color: #28a745;
+}
+
+/* Grid Layout */
+.leagues-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    justify-items: center;
+}
+
+/* League Card */
+.league-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.league-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* League Logo */
+.league-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+/* League Text */
+.league-card h2 {
+    font-size: 1rem;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.league-card p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .league-card {
+        width: 100%;
+    }
+
+    .league-logo {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+
+
+/* Search Bar */
+.search-bar {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.search-bar form {
+    display: inline-flex;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.search-bar input[type="text"] {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    width: 300px;
+}
+
+.search-bar button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #28a745; /* Green color */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #218838; /* Darker green */
+}
+.filters {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.filter-button {
+    padding: 10px 15px;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: green;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.filter-button.active {
+    background-color: #004d00; /* Darker green for the active filter */
+}
+
+.filter-button:hover {
+    background-color: #009900; /* Lighter green on hover */
+}
+
+/* General reset and font styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Header styles */
+.header {
+    background-color: #28a745; /* Green color for the header */
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-bar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-bar ul li {
+    display: inline-block;
+}
+
+.nav-bar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-bar ul li a:hover {
+    background-color: #264e36; /* Darker green for hover effect */
+}
+
+/* Main content styling */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
