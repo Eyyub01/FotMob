@@ -1,0 +1,167 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+.header {
+    background-color: #28a745;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 15px;
+    transition: background-color 0.3s;
+}
+
+.nav-links ul li a:hover {
+    background-color: #264e36;
+    border-radius: 5px;
+}
+
+/* Main Section */
+main {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #28a745;
+}
+
+/* Players Grid */
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Player Card */
+.team-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.team-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 15px;
+    display: block;
+}
+
+.team-card h2 {
+    font-size: 1rem;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.team-card p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+/* Footer */
+.footer {
+    background-color: #28a745;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Filter Section */
+.filters {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.filters h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #28a745;
+}
+
+.filters ul {
+    list-style: none;
+    padding: 0;
+    display: inline-flex;
+    gap: 15px;
+}
+
+.filters ul li {
+    display: inline-block;
+}
+
+.filters ul li a {
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.filters ul li a:hover {
+    background-color: #218838;
+}
+
+.filters ul li a.active {
+    background-color: #004d00; /* Darker green for active filter */
+}

@@ -23,3 +23,10 @@ def teams_view(request):
         teams = Teams.objects.all()
 
     return render(request, 'teams.html', {'teams': teams, 'leagues': leagues, 'selected_league': selected_league})
+
+def teams_search(request):
+    query = request.GET.get('q', '')
+
+    teams = Teams.objects.all
+
+    if query

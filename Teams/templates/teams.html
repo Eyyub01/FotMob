@@ -15,11 +15,21 @@
             <ul>
                 <li><a href="{% url 'leagues' %}">Leagues</a></li>
                 <li><a href="{% url 'teams' %}">Teams</a></li>
-                <li><a href="">Players</a></li>
+                <li><a href="{% url 'players' %}"">Players</a></li>
                 <li><a href="">About</a></li>
             </ul>
         </nav>
     </header>
+
+        <!-- Search Section -->
+        <main>
+            <section class="search-bar">
+                <form method="get" action="{% url 'search_leagues' %}">
+                    <input type="text" name="q" placeholder="Search leagues..." value="{{ query }}">
+                    <button type="submit">Search</button>
+                </form>
+            </section>
+    
 
 <!-- Filter Section -->
 <section class="filters">

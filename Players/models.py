@@ -1,4 +1,5 @@
 from django.db import models
+from django_countries.fields import CountryField
 from django.core.validators import MinValueValidator
 from datetime import date
 from Teams.models import Teams  # Ensure this import matches your actual Teams model import
@@ -31,6 +32,7 @@ class Player(models.Model):
     
     team = models.ForeignKey(Teams, on_delete=models.CASCADE, null=True, blank=True)
     full_name = models.CharField(max_length=64)
+    country = CountryField()
     date_of_birth = models.DateField(null=True, blank=True, help_text='Please write in order YEAR-MONTH-DAY')
     player_photo = models.ImageField(null=True, blank=True)
     position = models.CharField(max_length=3, choices=POSITION_CHOICES)

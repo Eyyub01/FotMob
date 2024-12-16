@@ -163,3 +163,37 @@ h1 {
 .filters ul li a.active {
     background-color: #004d00; /* Darker green for active filter */
 }
+/* Search Bar */
+.search-bar {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.search-bar form {
+    display: inline-flex;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.search-bar input[type="text"] {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    width: 300px;
+}
+
+.search-bar button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #28a745; /* Green color */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #218838; /* Darker green */
+}

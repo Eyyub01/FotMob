@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Players</title>
+    <link rel="stylesheet" href="{% static 'players.css' %}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo">FotMob</div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="{% url 'leagues' %}">Leagues</a></li>
+                <li><a href="{% url 'teams' %}">Teams</a></li>
+                <li><a href="{% url 'players' %}">Players</a></li>
+                <li><a href="">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Players Display Section -->
+    <main>
+        <h1>All Players</h1>
+        <div class="teams-grid">
+            {% for player in players %}
+                <div class="team-card">
+                    {% if player.player_photo %}
+                        <img src="{{ player.player_photo.url }}" alt="{{ player.full_name }}" class="team-logo">
+                    {% else %}
+                        <img src="{% static 'default-player.png' %}" alt="Default Player" class="team-logo">
+                    {% endif %}
+                    <h2>{{ player.full_name }}</h2>
+                    <p><strong>Team:</strong> {{ player.team.team_name }}</p>
+                    <p><strong>Position:</strong> {{ player.get_position_display }}</p>
+                    <p><strong>Age:</strong> {{ player.age }}</p>
+                    <p><strong>Country:</strong> {{ player.country }}</p>
+                </div>
+            {% empty %}
+                <p>No players available.</p>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>
