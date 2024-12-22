@@ -21,14 +21,11 @@
         </nav>
     </header>
 
-        <!-- Search Section -->
-        <main>
-            <section class="search-bar">
-                <form method="get" action="{% url 'search_leagues' %}">
-                    <input type="text" name="q" placeholder="Search leagues..." value="{{ query }}">
-                    <button type="submit">Search</button>
-                </form>
-            </section>
+    <form method="get" action="{% url 'teams_search' %}">
+        <input type="text" name="q" placeholder="Search teams..." value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+    
     
 
 <!-- Filter Section -->

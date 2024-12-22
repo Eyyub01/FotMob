@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import teams_view
+from . import views
 
 urlpatterns = [
-    path('', teams_view, name='teams')
+    path('', views.teams_view, name='teams'),
+    path('teams/', views.teams_search_view, name='teams_search')
 ]

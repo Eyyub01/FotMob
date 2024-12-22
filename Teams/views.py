@@ -24,9 +24,17 @@ def teams_view(request):
 
     return render(request, 'teams.html', {'teams': teams, 'leagues': leagues, 'selected_league': selected_league})
 
-def teams_search(request):
-    query = request.GET.get('q', '')
 
-    teams = Teams.objects.all
+def teams_search_view(request):
+    query = request.GET.get('q')  # Get the search term from the query string
+    teams = Teams.objects.all()
 
-    if query
+    if query:
+        teams = teams.filter(team_name__icontains=query)  # Case-insensitive search for team names
+
+    context = {
+        'teams': teams,
+        'query': query,
+    }
+    return render(request, 'teams.html', context)
+

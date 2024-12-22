@@ -42,8 +42,6 @@ INSTALLED_APPS = [
     'League',
 
     'django_countries',
-
-    'django_filters'
 ]
 
 MIDDLEWARE = [
