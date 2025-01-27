@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="add-league-container">
+    <h1>Add League</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Add League</button>
+    </form>
+    <a href="{% url 'leagues' %}" class="btn btn-secondary">Back to Leagues</a>
+</div>
+{% endblock %}

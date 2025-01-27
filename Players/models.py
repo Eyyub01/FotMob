@@ -2,7 +2,7 @@ from django.db import models
 from django_countries.fields import CountryField
 from django.core.validators import MinValueValidator
 from datetime import date
-from Teams.models import Teams  # Ensure this import matches your actual Teams model import
+from Teams.models import Teams  
 
 class Player(models.Model):
     POSITION_CHOICES = [

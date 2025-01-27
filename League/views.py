@@ -1,9 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import League
 
 from django.db.models import Q
 from django.db.models import Q
 from django_countries import countries
+from .forms import LeagueForm
+from django.contrib import messages
 
 
 def leagues_view(request):
@@ -41,3 +43,16 @@ def leagues_filter_view(request):
 
     return render(request, 'home.html', {'leagues': leagues, 'filter_type': filter_type})
 
+
+def add_league(request):
+    if request.method == 'POST':
+        form = LeagueForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "League added successfully!")
+            return redirect('leagues')
+        else:
+            messages.error(request, "Please correct the errors below.")
+    else:
+        form = LeagueForm()
+    return render(request, 'add_league.html', {'form': form})

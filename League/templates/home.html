@@ -16,6 +16,7 @@
                 <li><a href="{% url 'leagues' %}">Leagues</a></li>
                 <li><a href="{% url 'teams' %}">Teams</a></li>
                 <li><a href="{% url 'players' %}">Players</a></li>
+                <li><a href="{% url 'add_league' %}" class="add-league-button">Add League</a></li>
                 <li><a href="">About</a></li>
             </ul>
         </nav>
@@ -27,10 +28,13 @@
             <h1>Welcome to FotMob</h1>
             <p>Explore football leagues, teams, and players worldwide.</p>
         </section>
-    </main>
 
-    <!-- Search Section -->
-    <main>
+        <!-- Add League Button -->
+        <div class="add-league-button-container">
+            <a href="{% url 'add_league' %}" class="add-league-button">+ Add League</a>
+        </div>
+
+        <!-- Search Section -->
         <section class="search-bar">
             <form method="get" action="{% url 'search_leagues' %}">
                 <input type="text" name="q" placeholder="Search leagues..." value="{{ query }}">
@@ -38,31 +42,28 @@
             </form>
         </section>
 
-         <!-- Filter Buttons -->
+        <!-- Filter Buttons -->
+        <section class="filters">
+            <a href="/leagues/?filter=all" class="filter-button {% if filter_type == 'all' %}active{% endif %}">All Leagues</a>
+            <a href="/leagues/?filter=top5" class="filter-button {% if filter_type == 'top5' %}active{% endif %}">Top 5 Leagues</a>
+        </section>
 
-    <section class="filters">
-        <a href="/leagues/?filter=all" class="filter-button {% if filter_type == 'all' %}active{% endif %}">All Leagues</a>
-        <a href="/leagues/?filter=top5" class="filter-button {% if filter_type == 'top5' %}active{% endif %}">Top 5 Leagues</a>
-    </section>
-
-
-    <section class="leagues-section">
-        <h1>All Leagues</h1>
-        <div class="leagues-grid">
-            {% for league in leagues %}
-                <div class="league-card">
-                    {% if league.league_logo %}
-                        <img src="{{ league.league_logo.url }}" alt="{{ league.league_name }}" class="league-logo">
-                    {% endif %}
-                    <h2>{{ league.league_name }}</h2>
-                    <p><strong>Country:</strong> {{ league.country.name }}</p>
-                    <p><strong>Teams:</strong> {{ league.number_of_teams }}</p>
-                </div>
-            {% endfor %}
-        </div>
-    </section>
-    
+        <!-- Leagues Section -->
+        <section class="leagues-section">
+            <h1>All Leagues</h1>
+            <div class="leagues-grid">
+                {% for league in leagues %}
+                    <div class="league-card">
+                        {% if league.league_logo %}
+                            <img src="{{ league.league_logo.url }}" alt="{{ league.league_name }}" class="league-logo">
+                        {% endif %}
+                        <h2>{{ league.league_name }}</h2>
+                        <p><strong>Country:</strong> {{ league.country.name }}</p>
+                        <p><strong>Teams:</strong> {{ league.number_of_teams }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
     </main>
-
 </body>
 </html>

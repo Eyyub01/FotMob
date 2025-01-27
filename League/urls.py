@@ -5,4 +5,5 @@ urlpatterns = [
     path('', leagues_view, name='League'),
     path('search/', leagues_search_view, name='search_leagues'),
     path('leagues/', leagues_filter_view, name='leagues'), 
+    path('add/', add_league, name='add_league'),
 ]

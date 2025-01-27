@@ -8,6 +8,8 @@ django = "*"
 pillow = "*"
 django-countries = "*"
 django-filter = "*"
+celery = "*"
+redis = "*"
 
 [dev-packages]
 
